@@ -1,29 +1,47 @@
-function getShippingCost(country) {
-    let shippingCost;
+const getTotalBalanceByGender = (users, gender) =>
+  users
+    .filter(user => user.gender === gender)
+    .reduce((totalBalance, user) => totalBalance + user.balance, 0);
 
-    switch (country) {
-        case "China":
-            shippingCost = 100;
-            break;
-        case "Chile":
-            shippingCost = 250;
-            break;
-        case "Australia":
-            shippingCost = 170;
-            break;
-        case "Jamaica":
-            shippingCost = 120;
-            break;
-        default:
-            return "Sorry, there is no delivery to your country";
-    }
+const allUsersBalance = [
+  {
+    name: "Moore Hensley",
+    gender: "male",
+    balance: 2811
+  },
+  {
+    name: "Sharlene Bush",
+    gender: "female",
+    balance: 3821
+  },
+  {
+    name: "Ross Vazquez",
+    gender: "male",
+    balance: 3793
+  },
+  {
+    name: "Elma Head",
+    gender: "female",
+    balance: 2278
+  },
+  {
+    name: "Carey Barr",
+    gender: "male",
+    balance: 3951
+  },
+  {
+    name: "Blackburn Dotson",
+    gender: "male",
+    balance: 1498
+  },
+  {
+    name: "Sheree Anthony",
+    gender: "female",
+    balance: 2764
+  }
+];
 
-    return `Shipping to ${country} will cost ${shippingCost} credits`;
-}
+console.log(getTotalBalanceByGender(allUsersBalance, "male"));
 
-console.log(getShippingCost("Australia"));
-console.log(getShippingCost("Germany"));
-console.log(getShippingCost("China"));
-console.log(getShippingCost("Chile"));
-console.log(getShippingCost("Jamaica"));
-console.log(getShippingCost("Sweden"));
+console.log(getTotalBalanceByGender(allUsersBalance, "female"));
+
